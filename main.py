@@ -136,9 +136,9 @@ def main():
     cv2.destroyAllWindows()
 
 if __name__ == '__main__':
-#    while True:
-#        try:
-#            main()
-#        except:
-#            continue
-    main()
+    while True:
+        try:
+            main()
+        except:
+            continue
+#    main()
