@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>People Counting System</title>
+<script src="{{url_for('static', filename='js/index.js')}}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="title">RIT People Counting System</div>
+<div class="container">
+	<div class="counter">
+		<div class="in">
+			<span class="sub-head">In</span>
+			<span id="in">--</span>
+		</div>
+		<div class="out">
+			<span class="sub-head">Out</span>
+			<span id="out">--</span>
+		</div>
+	</div>
+	<div class="attendance">
+		<div class="live"><span class="sub-head">Attendance</span><div class="live-indicator"></div></div>
+		<span id="attendance">--</span>
+	</div>
+	<div class="temperature">
+		<span class="sub-head">CPU Temperature</span>
+		<span id="temp">--°C</span>
+	</div>
+</div>
+{% endblock %}
