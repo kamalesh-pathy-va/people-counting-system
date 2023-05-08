@@ -130,13 +130,6 @@ def main():
             print(out_text)
 
         # image = utils.visualize(image, detection_result)
-        # Frame rate
-        if counter % fps_avg_frame_count == 0:
-            endTime = time.time()
-            fps = fps_avg_frame_count / (endTime - startTime)
-            startTime = time.time()
-
-        print(fps)
 
         if cv2.waitKey(1) == 27:
             break
@@ -147,6 +140,14 @@ def main():
             store_data(f"{in_count},{out_count}")
 
         flag = True
+        
+        #Frame rate
+        if counter % fps_avg_frame_count == 0:
+            endTime = time.time()
+            fps = fps_avg_frame_count / (endTime - startTime)
+            startTime = time.time()
+
+        print(fps)
 
     cap.release()
     cv2.destroyAllWindows()
