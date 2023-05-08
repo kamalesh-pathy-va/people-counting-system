@@ -82,7 +82,7 @@ def main():
     # Frame rate
     counter, fps = 0, 0
     fps_avg_frame_count = 10
-    start_time = time.time()
+    startTime = time.time()
 
     cap = cv2.VideoCapture(0)
     #cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
@@ -132,9 +132,9 @@ def main():
         # image = utils.visualize(image, detection_result)
         # Frame rate
         if counter % fps_avg_frame_count == 0:
-            end_time = time.time()
-            fps = fps_avg_frame_count / (end_time - start_time)
-            start_time = time.time()
+            endTime = time.time()
+            fps = fps_avg_frame_count / (endTime - startTime)
+            startTime = time.time()
 
         print(fps)
 
