@@ -78,7 +78,12 @@ def store_data(data):
     with open('/home/kamaleshpathy/Downloads/final_test/value.pkl', 'wb') as f:
         pickle.dump(data, f)
 
-def main():    
+def main():
+    # Frame rate
+    counter, fps = 0, 0
+    fps_avg_frame_count = 10
+    start_time = time.time()
+
     cap = cv2.VideoCapture(0)
     #cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
     #cap.set(cv2.CAP_PROP_FRAME_HEIGHT,480)
@@ -98,6 +103,10 @@ def main():
 
     while cap.isOpened():
         success, image = cap.read()
+
+        # Frame rate
+        counter += 1
+
         image = cv2.flip(image, 1)
 
         if flag:
@@ -121,6 +130,13 @@ def main():
             print(out_text)
 
         # image = utils.visualize(image, detection_result)
+        # Frame rate
+        if counter % fps_avg_frame_count == 0:
+            end_time = time.time()
+            fps = fps_avg_frame_count / (end_time - start_time)
+            start_time = time.time()
+
+        print(fps)
 
         if cv2.waitKey(1) == 27:
             break
