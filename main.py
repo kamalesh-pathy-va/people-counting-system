@@ -80,9 +80,7 @@ def store_data(data):
 
 def main():
     # Frame rate
-    counter, fps = 0, 0
-    fps_avg_frame_count = 10
-    startTime = time.time()
+    fps = 0
 
     cap = cv2.VideoCapture(0)
     #cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
@@ -105,7 +103,7 @@ def main():
         success, image = cap.read()
 
         # Frame rate
-        counter += 1
+        tStart = time.time()
 
         image = cv2.flip(image, 1)
 
@@ -142,10 +140,9 @@ def main():
         flag = True
         
         #Frame rate
-        if counter % fps_avg_frame_count == 0:
-            endTime = time.time()
-            fps = fps_avg_frame_count / (endTime - startTime)
-            startTime = time.time()
+        tEnd = time.time()
+        loopTime = tEnd - tStart
+        fps = .9*fps + .1*(1/loopTime)
 
         print(fps)
 
