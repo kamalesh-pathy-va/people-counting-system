@@ -3,10 +3,8 @@ function updateValue() {
              .then(data => {
                const inElement = document.getElementById('in');
                const outElement = document.getElementById('out');
-               const attendanceElement = document.getElementById('attendance');
                inElement.innerHTML = data["in"];
                outElement.innerHTML = data["out"];
-               attendanceElement.innerHTML = data["in"] - data["out"];
              });
 }
 
@@ -18,5 +16,5 @@ function updateTemperature() {
   })
 }
 
-setInterval(updateValue, 1000); // Update every second
+setInterval(updateValue, 1000);
 setInterval(updateTemperature, 10000);

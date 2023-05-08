@@ -80,7 +80,7 @@ def store_data(data):
 
 def main():
     # Frame rate
-    fps = 0
+    #fps = 0
 
     cap = cv2.VideoCapture(0)
     #cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
@@ -103,7 +103,7 @@ def main():
         success, image = cap.read()
 
         # Frame rate
-        tStart = time.time()
+        #tStart = time.time()
 
         image = cv2.flip(image, 1)
 
@@ -140,11 +140,11 @@ def main():
         flag = True
         
         #Frame rate
-        tEnd = time.time()
-        loopTime = tEnd - tStart
-        fps = .9*fps + .1*(1/loopTime)
+        #tEnd = time.time()
+        #loopTime = tEnd - tStart
+        #fps = .9*fps + .1*(1/loopTime)
 
-        print(fps)
+        #print(fps)
 
     cap.release()
     cv2.destroyAllWindows()
