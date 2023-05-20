@@ -118,12 +118,12 @@ def main():
             #print(detection_result.detections[0].bounding_box)
             #print(detection_result.detections[0].categories[0].score)
         centroid_coordinates = cal_centroid(detection_result.detections)
-        cv2.line(image, (0, int(f_height/2)), (640, int(f_height/2)), (255, 255, 255), 2)
+        #cv2.line(image, (0, int(f_height/2)), (640, int(f_height/2)), (255, 255, 255), 2)
 
         for position in centroid_coordinates:
-            cv2.circle(image, (position[4], position[5]), 2, (255, 255, 128), 2)
+            #cv2.circle(image, (position[4], position[5]), 2, (255, 255, 128), 2)
             the_id = counting(position[4], position[5], (0, int(f_height/2)),(int(f_height/2), f_height))
-            cv2.putText(image, the_id, (position[4]+10, position[5]), cv2.FONT_HERSHEY_SIMPLEX, 0.3, (255, 255, 128), 1)
+            #cv2.putText(image, the_id, (position[4]+10, position[5]), cv2.FONT_HERSHEY_SIMPLEX, 0.3, (255, 255, 128), 1)
             out_text = f"In: {in_count} | Out: {out_count}"
             print(out_text)
 
@@ -131,7 +131,7 @@ def main():
 
         if cv2.waitKey(1) == 27:
             break
-        cv2.imshow('object_detector', image)
+        #cv2.imshow('object_detector', image)
         end_time = time.time()
         if end_time - start_time > 0.5:
             start_time = end_time
